@@ -25,7 +25,8 @@ brew install telnet
 ```
 The first excercise on servers comes from [this](https://github.com/makersacademy/skills-workshops/blob/master/practicals/servers_and_clients/servers.md) practical. Starting code was:
 
-```require 'socket'
+```ruby
+require 'socket'
 
 server = TCPServer.new(2345)
 
@@ -52,3 +53,57 @@ In a seperate terminal window connect via:
 telnet localhost 2345
 ```
 
+----------
+```
+
+   ___ _ _            _       
+  / __| (_) ___ _ __ | |_ ___ 
+ / /  | | |/ _ | '_ \| __/ __|
+/ /___| | |  __| | | | |_\__ \
+\____/|_|_|\___|_| |_|\__|___/
+                              
+```
+
+The first excercise on clients comes from [this](https://github.com/makersacademy/skills-workshops/blob/master/practicals/servers_and_clients/clients.md) practical.
+
+The starting server code was this:
+
+```ruby
+require 'socket'
+
+server = TCPServer.new(2345)
+
+socket = server.accept
+
+socket.puts "HELLO CLIENT WHAT IS YOUR NAME?"
+name = socket.gets.chomp
+socket.puts "THAT'S A LOVELY NAME #{name}"
+
+socket.close
+```
+
+And the starting client code was this:
+
+```ruby
+require 'socket'
+
+socket = TCPSocket.new('localhost', 2345)
+
+puts socket.gets
+puts "Wow what a rude server... I'm going to say Sarah"
+socket.puts "Sarah"
+puts socket.gets
+
+socket.close
+```
+
+I decided to play around with the code to make them talk forever together. This required looping the socket interactions. The socket is the connection between them and by passing the messages back and forth you can see the interaction in the client terminal window.
+
+Finished code for the [client](client.rb) and for the [server](server_2.rb).
+
+Open two terminal windows and run in one:
+```
+$ ruby server_2.rb
+```
+```
+$ ruby client.rb
