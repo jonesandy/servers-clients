@@ -10,7 +10,7 @@ And also telnet:
 ```
 brew install telnet
 ```
-==========================================================================================
+----------
 
 ```
 
@@ -24,8 +24,8 @@ brew install telnet
                                             
 ```
 The first excercise on servers comes from [this](https://github.com/makersacademy/skills-workshops/blob/master/practicals/servers_and_clients/servers.md) practical. Starting code was:
-```
-require 'socket'
+
+```require 'socket'
 
 server = TCPServer.new(2345)
 
