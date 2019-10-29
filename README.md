@@ -99,6 +99,8 @@ socket.close
 
 I decided to play around with the code to make them talk forever together. This required looping the socket interactions. The socket is the connection between them and by passing the messages back and forth you can see the interaction in the client terminal window.
 
+(hangup.png)
+
 Finished code for the [client](client.rb) and for the [server](server_2.rb).
 
 Open two terminal windows and run in one:
@@ -107,3 +109,5 @@ $ ruby server_2.rb
 ```
 ```
 $ ruby client.rb
+```
+To terminate the process, in the window running the client press: ```Ctrl + C```
